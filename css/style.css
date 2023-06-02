@@ -1,6 +1,7 @@
 :root {
   --c-text-main: #434455;
   --c-text-secondary: #2e2f42;
+  --c-text-hero: #fff;
   --c-accent: #4d5ae5;
   --fill-icon: #f4f4fd;
   --bgc-social-icon-h-f: #404bbf;
@@ -417,17 +418,24 @@ address {
     color: var(--c-accent);
   }
 }
-@media screen and (min-width: 1440px) {
-  .burger-btn {
-    display: none;
+
+/* Перевірка піксельної щільності */
+
+
+
+@media screen and (max-width: 767px) {
+  .hero {
+    padding-top: 112px;
+    padding-bottom: 112px;
+
   }
-}
-/* ДО 428 */
-@media screen and (max-width: 428px) {
-}
-/* ВІД 429 ДО 767 */
-@media screen and (min-width: 429px) and (max-width: 767px) {
-}
-/* ВІД 768 ДО 1439 */
-@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .hero__title {
+    text-align: center;
+    margin-bottom: 72px;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.11;
+    letter-spacing: 0.02em;
+    color: var(--c-text-hero);
+  }
 }
