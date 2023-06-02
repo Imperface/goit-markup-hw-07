@@ -3,6 +3,7 @@
   --c-text-secondary: #2e2f42;
   --c-accent: #4d5ae5;
   --fill-icon: #f4f4fd;
+  --bgc-social-icon-h-f: #404bbf;
   --transition-brd: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-c: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-stroke: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -68,6 +69,9 @@ ul {
   padding: 0;
   list-style: none;
 }
+address {
+  font-style: inherit;
+}
 
 .header__inner {
   display: flex;
@@ -83,12 +87,6 @@ ul {
 }
 .logo__studio-header {
   color: var(--c-text-secondary);
-}
-.mobile-menu {
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-  transition: var(--transition-visibility), var(--transition-opacity);
 }
 
 /* CONTAINER */
@@ -123,8 +121,24 @@ ul {
 /* /CONTAINER */
 
 /* HEADER */
+.header {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  border-bottom: 1px solid #e7e9fc;
+  box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
+}
+
 /* MOBILE */
+
 @media screen and (max-width: 767px) {
+  .mobile-menu {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition-visibility), var(--transition-opacity);
+  }
   .nav {
     /* DESKTOP NAV */
     display: none;
@@ -142,7 +156,6 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    line-height: 0;
     width: 32px;
     height: 22px;
     stroke: #2e2f42;
@@ -166,7 +179,7 @@ ul {
   .mobile-menu.is-open {
     visibility: visible;
     opacity: 1;
-    pointer-events: all;
+    pointer-events: auto;
   }
   .mobile-menu__inner {
     position: relative;
@@ -225,7 +238,6 @@ ul {
   /* MOBILE MENU CONTACT*/
   .mobile-menu__contacts {
     font-weight: 500;
-    font-style: normal;
     font-size: 20px;
     line-height: 1.2;
     letter-spacing: 0.02em;
@@ -260,6 +272,11 @@ ul {
     height: 40px;
     border-radius: 50%;
     background-color: var(--c-accent);
+    transition: var(--transition-bgc);
+  }
+  .mobile-menu__social-link:hover,
+  .mobile-menu__social-link:focus {
+    background-color: var(--bgc-social-icon-h-f);
   }
 }
 
@@ -275,11 +292,129 @@ ul {
 
 @media screen and (min-width: 768px) and (max-width: 1439px) {
   .burger-btn {
+    /* BURGER BUTTON */
     display: none;
   }
-
+  .mobile-menu {
+    display: none;
+  }
+  .header__inner {
+    justify-content: space-between;
+  }
+  .nav__list {
+    display: flex;
+    column-gap: 40px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+  .nav__link {
+    position: relative;
+    color: var(--c-text-secondary);
+    display: block;
+    padding: 23px 0;
+    transition: var(--transition-c);
+  }
+  .nav__link.current {
+    color: var(--c-accent);
+  }
+  .nav__link.current::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--c-accent);
+  }
+  .nav__link:hover,
+  .nav__link:focus {
+    color: var(--c-accent);
+  }
+  .contacts__list {
+    display: flex;
+    flex-direction: column;
+  }
+  .contacts__item + .contacts__item {
+    margin-top: 12px;
+  }
   .contacts__link {
-    color: var(--c-text-main);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    transition: var(--transition-c);
+  }
+  .contacts__link:hover,
+  .contacts__link:focus {
+    color: var(--c-accent);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .burger-btn {
+    /* BURGER BUTTON */
+    display: none;
+  }
+  .mobile-menu {
+    display: none;
+  }
+  .nav {
+    margin-left: 76px;
+  }
+  .nav__list {
+    display: flex;
+    column-gap: 40px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+  .nav__link {
+    position: relative;
+    color: var(--c-text-secondary);
+    display: block;
+    padding: 23px 0;
+    transition: var(--transition-c);
+  }
+  .nav__link.current {
+    color: var(--c-accent);
+  }
+  .nav__link.current::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--c-accent);
+  }
+  .nav__link:hover,
+  .nav__link:focus {
+    color: var(--c-accent);
+  }
+  .contacts {
+    margin-left: auto;
+  }
+  .contacts__list {
+    display: flex;
+  }
+  .contacts__link {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    transition: var(--transition-c);
+  }
+  .contacts__item + .contacts__item {
+    margin-left: 40px;
+  }
+  .contacts__link:hover,
+  .contacts__link:focus {
+    color: var(--c-accent);
   }
 }
 @media screen and (min-width: 1440px) {
@@ -287,76 +422,6 @@ ul {
     display: none;
   }
 }
-
-/* ВІД 768 ДО 1439 */
-@media screen and (min-width: 768px) and (max-width: 1439px) {
-  .header__inner {
-    justify-content: space-between;
-  }
-}
-/* ВІД 1440 */
-@media screen and (min-width: 1440px) {
-}
-
-/* NAV */
-
-/* ВІД 429 ДО 767 */
-
-/* ВІД 768 ДО 1439 */
-@media screen and (min-width: 768px) and (max-width: 1439px) {
-  .nav__list {
-    display: flex;
-    column-gap: 40px;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: 0.02em;
-  }
-  .nav__link {
-    position: relative;
-    color: var(--c-text-secondary);
-    display: block;
-    padding: 23px 0;
-  }
-  .nav__link.current::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    border-radius: 2px;
-    background-color: var(--c-accent);
-  }
-}
-/* ВІД 1440 */
-@media screen and (min-width: 1440px) {
-  .nav__list {
-    display: flex;
-    column-gap: 40px;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: 0.02em;
-  }
-  .nav__link {
-    position: relative;
-    color: var(--c-text-secondary);
-    display: block;
-    padding: 23px 0;
-  }
-  .nav__link.current::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    border-radius: 2px;
-    background-color: var(--c-accent);
-  }
-}
-
 /* ДО 428 */
 @media screen and (max-width: 428px) {
 }
