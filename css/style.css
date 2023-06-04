@@ -252,7 +252,6 @@ address {
   /* MOBILE MENU NAV*/
   .mobile-menu__nav {
     flex-grow: 1;
-    margin-bottom: 40px;
   }
   .mobile-menu__nav-list {
     color: var(--c-text-secondary);
@@ -302,7 +301,10 @@ address {
   .mobile-menu__social-list {
     display: flex;
     column-gap: 56px;
-    fill: var(--fill-icon);
+    color: var(--fill-icon);
+  }
+  .mobile-menu__social-icon { 
+    fill: currentColor;
   }
   .mobile-menu__social-link {
     display: flex;
