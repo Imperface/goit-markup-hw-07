@@ -915,7 +915,7 @@ address {
   border: 1px solid var(--c-accent);
 }
 .footer__subscribe-input::placeholder {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.6);
 }
 .footer__subscribe-btn {
   display: flex;
