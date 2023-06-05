@@ -734,6 +734,7 @@ address {
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
   border-radius: 0px 0px 4px 4px;
   background-color: var(--bgc-team-card);
+  max-width: 264px;
 }
 .team__card {
   padding: 32px 16px;
@@ -821,7 +822,7 @@ address {
     row-gap: 64px;
   }
   .team__item {
-    max-width: calc((100% - 72px) / 3);
+    max-width: calc((100% - 72px) / 4);
   }
 }
 /* ========== /TEAM ========== */
@@ -1016,6 +1017,14 @@ address {
   }
   .portfolio__filter-btn {
     padding: 12px 24px;
+  }
+  .portfolio__project-list {
+    flex-wrap: wrap;
+    column-gap: 24px;
+    row-gap: 48px;
+  }
+  .portfolio__project-item {
+    width: calc((100% - 48px) / 3);
   }
   .portfolio-img__text {
     position: absolute;
@@ -1259,6 +1268,7 @@ address {
   line-height: 1.5;
   letter-spacing: 0.02em;
   text-align: center;
+  color: var(--c-text-secondary);
 }
 .modal__label {
   display: block;
