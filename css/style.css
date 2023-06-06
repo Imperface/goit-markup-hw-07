@@ -942,7 +942,7 @@ address {
   margin-bottom: 8px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 320.9px) {
   .portfolio__filter-list {
     column-gap: 15px;
   }
